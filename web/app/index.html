@@ -5,18 +5,23 @@
   <meta name="viewport" content="width=device-width" />
   <title>Paige & Jared</title>
   <link rel="stylesheet" type="text/css" href="./main.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 </head>
 <body>
-<main class="hide">
-  <!-- NavBar -->
-  <nav></nav>
+<!-- NavBar -->
+<nav></nav>
 
-  <div class="mountains-container">
-    <div class="mountain"></div>
-    <div class="mountain"></div>
-    <div class="mountain"></div>
+
+<main class="scene hide">
+  <div class="mountains-wrapper">
+    <div class="mountains-container">
+      <div id="m1" class="mountain"></div>
+      <div id="m2" class="mountain"></div>
+      <div id="m3" class="mountain"></div>
+    </div>
   </div>
   <div id="gondola"></div>
+  <div id="cloud"></div>
 </main>
 <script src="./app.js"></script>
 </body>

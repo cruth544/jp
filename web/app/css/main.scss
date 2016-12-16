@@ -1,7 +1,14 @@
 $animation: cubic-bezier(0.22, 0.61, 0.5, 1.04);
 
+body {
+	background-color: skyblue;
+	height: 3000px;
+}
+
 main {
 	position: relative;
+	width: 100vw;
+	height: 100vh;
 	// opacity: 0;
 	// visibility: hidden;
 }
@@ -12,21 +19,102 @@ main {
 
 .fade-in {
 	opacity: 1;
-	transition: opacity 1.5s $animation;
+	transition: opacity 2s $animation;
 }
 
 #gondola {
-	position: absolute;
-	background-color: fuchsia;
+	position: fixed;
+	bottom: 10%;
+	left: 50%;
+	// background-color: fuchsia;
+	outline: 1px solid orange;
+
 	height: 200px;
 	width: 200px;
-	outline: 1px solid orange;
+	background: url( '../../assets/gondola/gondola-copy.svg' );
+
+  // animation-name: swing;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
-.mountain {
-	position: absolute;
-	background-color: limegreen;
-	height: 800px;
-	width: 600px;
-	outline: 1px solid dodgerblue;
+#cloud {
+	width: 100px;
+	height: 50px;
+	background-color: white;
+	opacity: 0.4;
+	position: fixed;
+	top: 20%;
+	left: 45%;
+}
+
+/* The animation code */
+@keyframes swing {
+    0% 100% {
+    	transform: translate( 0%, 0%) scale( 1, 1 );
+    }
+    25% {
+    	transform: translate( -10%, -5%) scale( 1.1, 1.1 );
+    }
+    45% {
+    	transform: translate( -2%, -1%) scale( 1.05, 1.05 );
+    }
+    50% {
+    	transform: translate( 0%, 0%) scale( 1, 1 );
+    }
+    55% {
+    	transform: translate( 2%, -1%) scale( 0.95, 0.95 );
+    }
+    75% {
+    	transform: translate( 10%, -5%) scale( 0.9, 0.9 );
+    }
+}
+
+// /* The element to apply the animation to */
+// div {
+//     // // background-color: red;
+//     // animation-name: example;
+//     // animation-duration: 4s;
+// }
+
+.mountains-wrapper {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+
+	.mountains-container {
+		position: relative;
+		height: 100%;
+		width: 100%;
+
+		.mountain {
+			position: absolute;
+			background-color: limegreen;
+			height: 600px;
+			width: 400px;
+			outline: 1px solid dodgerblue;
+			transform: scale( 2.4 );
+
+			transition: all 0.5 ease-out;
+			transition-property: transform;
+		}
+	}
+}
+
+#m1 {
+	left: 45%;
+	background: url( '../../assets/mountains/middle-mountain.svg' );
+}
+
+#m2 {
+	left: 0;
+	// display: none;
+	background: url( '../../assets/mountains/left-mountain.svg' );
+}
+
+#m3 {
+	right: 0;
+	// display: none;
+	background: url( '../../assets/mountains/right-mountain.svg' );
 }

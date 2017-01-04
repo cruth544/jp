@@ -49,7 +49,7 @@ module.exports = {
     ]
   },
   sassLoader: {
-    includePaths: [path.resolve( __dirname, "./app" )]
+    includePaths: [path.resolve( __dirname, "./app/" )]
   },
   output: debug ? {
     path: path.join( __dirname, "app/" ),

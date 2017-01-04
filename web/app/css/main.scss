@@ -1,7 +1,12 @@
+@import "_globals.scss";
+
 $animation: cubic-bezier(0.22, 0.61, 0.5, 1.04);
+$time: 2s;
 
 body {
+	// visibility: hidden;
 	background-color: skyblue;
+	transition: background-color $time $animation;
 	height: 3000px;
 }
 
@@ -13,27 +18,23 @@ main {
 	// visibility: hidden;
 }
 
-.hide {
-	opacity: 0;
-}
-
 .fade-in {
 	opacity: 1;
-	transition: opacity 2s $animation;
+	transition: opacity $time $animation;
 }
 
 #gondola {
 	position: fixed;
 	bottom: 10%;
-	left: 50%;
+	left: 45%;
 	// background-color: fuchsia;
-	outline: 1px solid orange;
+	// outline: 1px solid orange;
 
 	height: 200px;
 	width: 200px;
-	background: url( '../../assets/gondola/gondola-copy.svg' );
+	background: url( '../assets/gondola/gondola-copy.svg' );
 
-  // animation-name: swing;
+  animation-name: swing;
   animation-duration: 4s;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
@@ -93,7 +94,7 @@ main {
 			background-color: limegreen;
 			height: 600px;
 			width: 400px;
-			outline: 1px solid dodgerblue;
+			// outline: 1px solid dodgerblue;
 			transform: scale( 2.4 );
 
 			transition: all 0.5 ease-out;
@@ -104,17 +105,60 @@ main {
 
 #m1 {
 	left: 45%;
-	background: url( '../../assets/mountains/middle-mountain.svg' );
+	background: url( '../assets/mountains/middle-mountain.svg' );
 }
 
 #m2 {
 	left: 0;
 	// display: none;
-	background: url( '../../assets/mountains/left-mountain.svg' );
+	background: url( '../assets/mountains/left-mountain.svg' );
 }
 
 #m3 {
 	right: 0;
 	// display: none;
-	background: url( '../../assets/mountains/right-mountain.svg' );
+	background: url( '../assets/mountains/right-mountain.svg' );
+}
+
+#info-overlay {
+	position: fixed;
+	opacity: 0;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background-color: white;
+
+	transition: opacity $time $animation;
+}
+
+#text-bg {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+}
+
+#jp-image {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	background: url( '../assets/images/wedding2.png' ) center no-repeat whitesmoke;
+	background-size: contain;
+	opacity: 0.3;
+}
+
+#nav-bar {
+	width: 50%;
+	margin: 10px auto 40px;
+	.nav-link {
+		float: left;
+	}
+}
+
+.text-info {
+	width: 40%;
+	margin: 10px auto;
 }

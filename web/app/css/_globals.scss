@@ -1,0 +1,20 @@
+li {
+	list-style-type: none;
+}
+
+.link {
+	color: dodgerblue;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.hide {
+	opacity: 0;
+}
+
+.clear {
+	clear: both;
+}

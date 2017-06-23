@@ -84,7 +84,7 @@ require( 'css/main.scss' )
 		if ( y < TOP_TRIGGER ) {
 			info.style.opacity = '1'
 			info.style.visibility = 'visible'
-			document.body.style.backgroundColor = 'white'
+			// document.body.style.backgroundColor = 'white'
 		} else {
 			info.style.opacity = '0'
 			document.body.style.backgroundColor = 'skyblue'
@@ -111,3 +111,42 @@ require( 'css/main.scss' )
 		window.scrollTo( 0, Number.MAX_VALUE )
 	})
 })()
+
+function changeURLRoute(argument) {
+	// body...
+}
+
+function changeURLParams( paramsObj ) {
+    var path = window.location.pathname
+    var params = {}
+    try {
+        var paramsString = /\?.*/.exec( window.location.href )[0]
+        var paramsArray = paramsString.replace( /\?/, '').split( '&' )
+        paramsArray.forEach( function ( singleParam ) {
+            var paramPair = singleParam.split( '=' )
+            params[paramPair[0]] = ''
+            for ( var i = 1; i < paramPair.length; i++ ) {
+                params[paramPair[0]] += paramPair[i]
+            }
+        })
+    } catch ( e ) {
+        // No params
+    }
+
+    params = Object.assign( {}, params, paramsObj )
+    var finalParams = []
+
+    for( var key in params ) {
+        if ( paramsObj[key] ) {
+            params[key] = paramsObj[key]
+        }
+        var paramKey = key +'='+ params[key]
+        finalParams.push( paramKey )
+    }
+    var finalPath = path +'?'+ finalParams.join( '&' )
+    window.history.pushState("{}", "", finalPath )
+    return finalPath
+    // angular overrides this
+};
+
+window.changeURLParams = changeURLParams
